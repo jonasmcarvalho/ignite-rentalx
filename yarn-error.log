@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add typeorm reflect-metadata
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add tsyringe
 
 PATH: 
   C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Bitvise SSH Client;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\Jonas\AppData\Local\Microsoft\WindowsApps;C:\Users\Jonas\AppData\Roaming\npm;C:\Users\Jonas\AppData\Local\nvs\default;C:\Users\Jonas\AppData\Local\nvs\;C:\Users\Jonas\AppData\Local\Yarn\bin
@@ -23,7 +23,8 @@ npm manifest:
       "main": "index.js",
       "license": "MIT",
       "scripts": {
-          "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts"
+          "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
+          "typeorm": "ts-node-dev ./node_modules/typeorm/cli"
       },
       "dependencies": {
           "@types/multer": "^1.4.7",
