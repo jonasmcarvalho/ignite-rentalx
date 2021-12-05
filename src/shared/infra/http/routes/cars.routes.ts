@@ -8,7 +8,7 @@ import { ListAvailableCarsController } from '@modules/cars/useCases/listAvailabl
 import { UploadCarImagesController } from '@modules/cars/useCases/uploadCarImages/UploadCarImagesController';
 
 import { ensureAdmin } from '../middlewares/ensureAdmin';
-import { ensureAuthentidated } from '../middlewares/ensureAuthenticated';
+import { ensureAuthenticated } from '../middlewares/ensureAuthenticated';
 
 const carsRoutes = Router();
 
@@ -21,7 +21,7 @@ const upload = multer(uploadConfig.upload('./tmp/cars'));
 
 carsRoutes.post(
     '/',
-    ensureAuthentidated,
+    ensureAuthenticated,
     ensureAdmin,
     createCarController.handle,
 );
@@ -30,14 +30,14 @@ carsRoutes.get('/available', listAvailableCarsController.handle);
 
 carsRoutes.post(
     '/specifications/:id',
-    ensureAuthentidated,
+    ensureAuthenticated,
     ensureAdmin,
     createCarSpecificationController.handle,
 );
 
 carsRoutes.post(
     '/images/:id',
-    ensureAuthentidated,
+    ensureAuthenticated,
     ensureAdmin,
     upload.array('images'),
     uploadCarImagesController.handle,

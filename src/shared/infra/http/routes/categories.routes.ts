@@ -5,7 +5,7 @@ import { CreateCategoryController } from '@modules/cars/useCases/createCaterogor
 import { ImportCategoryController } from '@modules/cars/useCases/importCategory/ImportCategoryController';
 import { ListCategoriesController } from '@modules/cars/useCases/listCategories/ListCategoriesController';
 import { ensureAdmin } from '@shared/infra/http/middlewares/ensureAdmin';
-import { ensureAuthentidated } from '@shared/infra/http/middlewares/ensureAuthenticated';
+import { ensureAuthenticated } from '@shared/infra/http/middlewares/ensureAuthenticated';
 
 const categoriesRoutes = Router();
 
@@ -19,7 +19,7 @@ const listCategoriesController = new ListCategoriesController();
 
 categoriesRoutes.post(
     '/',
-    ensureAuthentidated,
+    ensureAuthenticated,
     ensureAdmin,
     createCategoryController.handle,
 );
@@ -29,7 +29,7 @@ categoriesRoutes.get('/', listCategoriesController.handle);
 categoriesRoutes.post(
     '/import',
     upload.single('file'),
-    ensureAuthentidated,
+    ensureAuthenticated,
     ensureAdmin,
     importCategoryController.handle,
 );

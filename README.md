@@ -31,6 +31,7 @@ Deve ser possível cadastrar uma especificação para um carro.
 Não deve ser possível cadastrar uma especificação para um carro não cadastrado.
 Não deve ser possível cadastrar uma especificação já existente para o mesmo carro.
 O usuário responsavel pelo cadastro deve ser um usuário admistrador.
+O usuário deve estar logado na aplicação.
 
 
 # Cadastro de carro
