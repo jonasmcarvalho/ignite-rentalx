@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add cross-env -D
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add nodemailer
 
 PATH: 
   C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Bitvise SSH Client;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\Jonas\AppData\Local\Microsoft\WindowsApps;C:\Users\Jonas\AppData\Roaming\npm;C:\Users\Jonas\AppData\Local\nvs\default;C:\Users\Jonas\AppData\Local\nvs\;C:\Users\Jonas\AppData\Local\Yarn\bin
@@ -25,7 +25,7 @@ npm manifest:
       "scripts": {
           "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
           "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli",
-          "test": "$env:NODE_ENV=test jest",
+          "test": "cross-env NODE_ENV=test jest --runInBand --detectOpenHandles",
           "seed:admin": "ts-node-dev src/shared/infra/typeorm/seed/admin.ts"
       },
       "dependencies": {
@@ -55,6 +55,7 @@ npm manifest:
           "@types/uuid": "^8.3.1",
           "@typescript-eslint/eslint-plugin": "^5.3.1",
           "@typescript-eslint/parser": "^5.3.1",
+          "cross-env": "^7.0.3",
           "eslint": "^8.2.0",
           "eslint-config-airbnb-base": "^15.0.0",
           "eslint-config-prettier": "^8.3.0",
@@ -1494,7 +1495,14 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/create-require/-/create-require-1.1.1.tgz#c1d7e8f1e5f6cfc9ff65f9cd352d37348756c333"
     integrity sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==
   
-  cross-spawn@^7.0.2, cross-spawn@^7.0.3:
+  cross-env@^7.0.3:
+    version "7.0.3"
+    resolved "https://registry.yarnpkg.com/cross-env/-/cross-env-7.0.3.tgz#865264b29677dc015ba8418918965dd232fc54cf"
+    integrity sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==
+    dependencies:
+      cross-spawn "^7.0.1"
+  
+  cross-spawn@^7.0.1, cross-spawn@^7.0.2, cross-spawn@^7.0.3:
     version "7.0.3"
     resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.3.tgz#f73a85b9d5d41d045551c177e2882d4ac85728a6"
     integrity sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==
