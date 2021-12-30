@@ -1,7 +1,7 @@
 import { UsersRepositoryInMemory } from '@modules/accounts/repositories/in-memory/UsersRepositoryInMemory';
 import { UsersTokensRepositoryInMemory } from '@modules/accounts/repositories/in-memory/UsersTokensRepositoryInMemory';
 import { DayjsDateProvider } from '@shared/container/providers/DateProvider/implementations/DayjsDateProvider';
-import { MailProdiverInMemory } from '@shared/container/providers/DateProvider/MailProvider/in-memory/MailProviderInMemory';
+import { MailProdiverInMemory } from '@shared/container/providers/MailProvider/in-memory/MailProviderInMemory';
 import { AppError } from '@shared/errors/AppError';
 
 import { SendForgotPasswordMailUseCase } from './SendForgotPasswordMailUseCase';
