@@ -184,7 +184,7 @@
         "/cars": {
             "post": {
                 "tags": [
-                    "cars"
+                    "Cars"
                 ],
                 "summary": "Create a new car",
                 "description": "Create a new car",
