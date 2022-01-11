@@ -8,6 +8,7 @@ import swaggerUi from 'swagger-ui-express';
 import '@shared/container';
 import upload from '@config/upload';
 import { AppError } from '@shared/errors/AppError';
+import rateLimiter from '@shared/infra/http/middlewares/rateLimiter';
 import { router } from '@shared/infra/http/routes';
 import createConnection from '@shared/infra/typeorm'; // -> reconhece o index.ts automaticamente
 
@@ -15,6 +16,8 @@ import swaggerFile from '../../../swagger.json';
 
 createConnection();
 const app = express();
+
+app.use(rateLimiter);
 
 app.use(express.json());
 

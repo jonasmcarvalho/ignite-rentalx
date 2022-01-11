@@ -5,5 +5,3 @@ coverage
 tmp/*
 !tmp/.gitkeep
 dist
-ormconfig.json
-docker-compose.yml
